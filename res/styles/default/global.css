@@ -1,0 +1,32 @@
+#nom_imcomplet, #succes
+{
+	display:none;
+	color: red;
+}
+
+table {
+border: medium solid #000000;
+width: 75%;
+}
+td, th {
+border: thin solid #6495ed;
+}
+
+#type, #valeur
+{
+	width: 25%;
+}
+#table
+{
+	width: 25%;
+}
+#champs
+{
+	width: 25%;
+}
+
+#xpath
+{
+	width: 250px;
+	height: 25px;
+}

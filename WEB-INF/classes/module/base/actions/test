@@ -1,0 +1,27 @@
+nodeList = doc.getElementsByTagName("table");
+			
+			for (int i = 0; i < nodeList.getLength(); i++) { //Parcours toute les tables
+				Node nodeTable = nodeList.item(i);
+				if(nodeTable.getNodeType() == Node.ELEMENT_NODE){ //S'il s'agit d'un Element
+					Element elTable = (Element) nodeTable;
+					if(nodeTable.getAttributes().getNamedItem("name").getNodeValue().equals(table)){ //Si correspond a la table choisi
+						System.out.println("table :"+nodeTable.getAttributes().getNamedItem("name").getNodeValue());
+						NodeList listNodeChamp = nodeTable.getChildNodes();
+						for (int j = 0; j < listNodeChamp.getLength(); j++) {//Parcours tous ces champs
+							Node nodeChamp = listNodeChamp.item(j);
+							if(nodeChamp.getNodeType() == Node.ELEMENT_NODE){//S'il s'agit d'un Element
+								if(nodeChamp.getAttributes().getNamedItem("name").getNodeValue().equals(name)){//Si correspond au champ choisi
+									Element elChamp = (Element) nodeChamp;
+									System.out.println("Champ: "+nodeChamp.getAttributes().getNamedItem("name").getNodeValue());
+									//Remove Valeur et Type
+									Node removeValeur = elChamp.getElementsByTagName("valeur").item(0);
+				    				nodeChamp.removeChild(removeValeur);
+									Node removeType = elChamp.getElementsByTagName("type").item(0);
+									nodeChamp.removeChild(removeType);
+									elChamp.getParentNode().removeChild(elChamp);
+								}
+							}
+						}
+					}
+				}
+			}
