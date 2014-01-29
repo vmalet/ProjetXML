@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -34,7 +35,9 @@ public class Xpath implements IAction{
 		if (request.getMethod().equals("POST") && !valider.isEmpty()) {
 		
 			String xpath = request.getParameter("xpath");
-			FileInputStream file = new FileInputStream(new File("C:\\Users\\Valeri\\workspace2\\XMLproject\\fileBIS.xml"));
+			HttpSession session = request.getSession();
+			String nomFichier = (String) session.getAttribute("leFichier");
+			FileInputStream file = new FileInputStream(nomFichier);
 	        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 	        DocumentBuilder builder =  builderFactory.newDocumentBuilder();
 	        Document xmlDocument = builder.parse(file);

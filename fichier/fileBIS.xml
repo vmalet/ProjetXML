@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><users>
+	<user name="Valerie">
+		<dataBase dateC="06/01/2014" name="Personnes">
+			<table name="Jordan Fleuri">
+				<champ name="un champ">
+					<valeur>ma valeur </valeur>
+					<type>varchar</type>
+				</champ>
+				<champ name="Mathieu">
+					<valeur>adresse </valeur>
+					<type>varchar</type>
+				</champ>
+				<champ name="Nom/PrÃ©nom">
+					<valeur>Valerie</valeur>
+					<type>Varchar</type>
+				</champ>
+			</table>
+			<table name="TESTDE">
+				<champ name="Champsss">
+					<valeur>maValeur</valeur>
+					<type>varchar</type>
+				</champ>
+				<champ name="champ1">
+					<valeur>maValeur</valeur>
+					<type>varchar</type>
+				</champ>
+				<champ name="Nom/PrÃ©nom">
+					<valeur>Valerie</valeur>
+					<type>dateTime</type>
+				</champ>
+			</table>
+			<table name="adresse">
+				<champ name="Indien">
+					<valeur>Valerie</valeur>
+					<type>varchar</type>
+				</champ>
+			</table>
+		</dataBase>
+		<dataBase dateC="05/01/2014" name="Alimentation">
+			<table name="Restaurant">
+				<champ name="Type">
+					<valeur>Italien</valeur>
+					<type>varchar</type>
+				</champ>
+				<champ name="Nom/PrÃ©nom">
+					<valeur>Valerie</valeur>
+					<type>varchar</type>
+				</champ>
+				<champ name="Indien">
+					<valeur>Rue</valeur>
+					<type>varchar</type>
+				</champ>
+				<champ name="Un test ">
+					<valeur>comme ca</valeur>
+					<type>varchar</type>
+				</champ>
+			</table>
+		</dataBase>
+	</user>
+	<user name="Marie">
+	</user>
+</users>

@@ -32,11 +32,11 @@
 		        	<div id="headline">
                     <h2>CONNEXION</h2><br/>
                     <p>
-                    	<form action="<%= request.getContextPath() %>/user/userProfil" method="POST">
+                    	<form action="<%= request.getContextPath() %>/user/connexion" method="POST">
                     		LOGIN<br> 
-                    		<input type="text" style="width:80%" name="mylogin"><br/><br/>
+                    		<input type="text" style="width:80%" name="username"><br/><br/>
                     
-                    		PASSWORD<input type="password" style="width:80%" name="mypassword"><br>
+                    		PASSWORD<input type="password" style="width:80%" name="password"><br>
                     		<input type="submit" value="Valider">
                     		
                     		Mot de passe oublie ? <a href="#"> Cliquez ici</a>

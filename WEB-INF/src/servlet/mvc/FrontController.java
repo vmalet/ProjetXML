@@ -16,9 +16,13 @@ import javax.xml.xpath.XPathExpressionException;
 
 import module.base.actions.AjouterChamp;
 import module.base.actions.AjouterTable;
+import module.base.actions.Connexion;
+import module.base.actions.ConvertionTxt;
+import module.base.actions.ConvertionXML;
+import module.base.actions.CreerBase;
 import module.base.actions.ModifierBase;
 import module.base.actions.Supprimer;
-import module.base.actions.ValideBase;
+import module.base.actions.ValideBaseBis;
 import module.base.actions.VoirBase;
 import module.base.actions.Xpath;
 
@@ -30,14 +34,17 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		actions.put("base/valideBase", new ValideBase());
-		//actions.put("base/creerBase", new ValideBase());
+		actions.put("base/creerBase", new CreerBase());
+		actions.put("base/valideBaseTotal", new ValideBaseBis());
 		actions.put("base/voirBase", new VoirBase());
 		actions.put("base/modifierBase", new ModifierBase());
 		actions.put("base/ajouterTable", new AjouterTable());
 		actions.put("base/ajouterChamps", new AjouterChamp());
 		actions.put("base/supprimer", new Supprimer());
 		actions.put("base/saisieXPATH", new Xpath());
+		actions.put("base/XMLversTxt", new ConvertionTxt());
+		actions.put("base/baseVersXML", new ConvertionXML());
+		actions.put("user/connexion", new Connexion());
 	}
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)

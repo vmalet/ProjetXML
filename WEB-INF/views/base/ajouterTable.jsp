@@ -20,11 +20,13 @@
        
 		<form action="ajouterTable" method=post>
        	<% 
-       	String nomFichier = "C:\\Users\\Valeri\\workspace2\\XMLproject\\fileBIS.xml";
+       	String nomFichier = (String) session.getAttribute("leFichier");
+//        	String nomFichier = "C:\\Users\\Valeri\\workspace2\\XMLproject\\fichier\\fileBIS.xml";
 //        	String nomFichier = (String) session.getAttribute("fichier");
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		String nomUtilisateur = "Valerie";//A modifier par la variable de session
+		
+		String nomUtilisateur = (String) session.getAttribute("login");
 		
 		if(!new File(nomFichier).exists()) //le fichier existe pas 
 		{

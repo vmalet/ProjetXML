@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -22,6 +23,11 @@ public class AjouterChamp implements IAction{
 			TransformerConfigurationException, TransformerException {
 		// TODO Auto-generated method stub
 	
+		HttpSession session = request.getSession();
+		String nomUtilisateur = (String) session.getAttribute("login");
+		String nomFichier = (String) session.getAttribute("leFichier");
+		String fichierLog = (String) session.getAttribute("fichierLog");
+		
 		String valider = request.getParameter("validerChamps");
 		if (request.getMethod().equals("POST") && !valider.isEmpty()) {
 			System.out.println("Méthode POST");
@@ -45,9 +51,9 @@ public class AjouterChamp implements IAction{
 	        	// TODO appel de la fonction pour modifier le fichier XML 
 	        	
 	        	Ajout ajt = new Ajout();
-	        	ajt.Ajouter(base, table, champ, valeur, type);
+	        	ajt.Ajouter(nomFichier, nomUtilisateur, base, table, champ, valeur, type);
 	        	String faire = "un champ nommé: "+champ;
-	        	ajt.log("creer", "valerie", faire);
+	        	ajt.log(fichierLog, "creer", nomUtilisateur, faire);
 	        	
 	        }
 		}else{

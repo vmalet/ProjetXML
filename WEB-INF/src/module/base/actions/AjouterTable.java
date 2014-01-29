@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -22,6 +23,11 @@ public class AjouterTable implements IAction{
 			throws ParserConfigurationException, SAXException, IOException,
 			TransformerConfigurationException, TransformerException {
 		// TODO Auto-generated method stub
+		
+		HttpSession session = request.getSession();
+		String nomUtilisateur = (String) session.getAttribute("login");
+		String nomFichier = (String) session.getAttribute("leFichier");
+		String fichierLog = (String) session.getAttribute("fichierLog");
 		
 		String valider = request.getParameter("validerTable");
 		if (request.getMethod().equals("POST") && !valider.isEmpty()) {
@@ -42,9 +48,9 @@ public class AjouterTable implements IAction{
 	        	
 //	        	Ajout ajt = new Ajout(base, table, "", "", "");
 	        	Ajout ajt = new Ajout();
-	        	ajt.Ajouter(base, table, "", "", "");
+	        	ajt.Ajouter(nomFichier, nomUtilisateur, base, table, "", "", "");
 	        	String faire = " une table nommée "+table;
-		    	ajt.log("créer", "valerie", faire);
+		    	ajt.log(fichierLog, "créer", nomUtilisateur, faire);
 	        }
 		}
 		

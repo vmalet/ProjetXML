@@ -106,13 +106,12 @@
 				<nav>
 					<ul id="nav" class="sf-menu">
 						<li class="current-menu-item"><a href="<%= request.getContextPath() %>">ACCUEIL</a></li>
-						<%if (session.getAttribute("user") != null)	 { %>
-							<li><a href="<%= request.getContextPath() %>/user/profil?user=<% out.println(session.getAttribute("idUser"));%>">VOTRE PROFIL</a></li>
-						<%} %>
+						<%if (session.getAttribute("login") != null)	 { %>
 						<li><a href="<%= request.getContextPath() %>/base/voirBase">VOIR VOS BASES</a></li>
 						<li><a href="<%= request.getContextPath() %>/base/modifierBase">MODIFIER VOS BASE</a>
 							<ul>
 								<li><a href="<%= request.getContextPath() %>/base/creerBase">CREER VOTRE BASE</a></li>
+								<li><a href="<%= request.getContextPath() %>/base/creerBaseTotal">CREER UNE BASE ENTIERE</a></li>
 								<li><a href="<%= request.getContextPath() %>/base/ajouterTable">AJOUTER UNE TABLE</a></li>
 								<li><a href="<%= request.getContextPath() %>/base/ajouterChamps">AJOUTER DES CHAMPS</a></li>
 							</ul>
@@ -120,12 +119,12 @@
 						<li><a href="<%= request.getContextPath() %>/base/saisieXPATH">XPATH</a></li>
 						<li><a href="">CONVERTION DES BASES</a>
 							<ul>
-								<li><a href="">CONVERTIR BASE EN XML</a></li>
-								<li><a href="">CONVERTIR XML EN TXT</a></li>
+								<li><a href="<%= request.getContextPath() %>/base/baseVersXML">CONVERTIR BASE EN XML</a></li>
+								<li><a href="<%= request.getContextPath() %>/base/XMLversTxt">CONVERTIR XML EN TXT</a></li>
 							</ul>
 						</li>
-						
-		                <%if (session.getAttribute("user")!=null) {%>
+						<% } %>
+		                <%if (session.getAttribute("login")!=null) {%>
 		               	<li ><a href="<%= request.getContextPath() %>/user/deconnection" class="hover_pink">DECONNEXION </a> <!-- redirection vers page inscription --></li>
 		                <%} %>
 					</ul>

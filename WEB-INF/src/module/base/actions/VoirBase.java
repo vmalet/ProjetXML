@@ -22,7 +22,7 @@ public class VoirBase implements IAction {
 			TransformerConfigurationException, TransformerException {
 		HttpSession session = request.getSession();
 		// TODO Auto-generated method stub
-		System.out.println(session.getAttribute("utilisateur"));
+		System.out.println(session.getAttribute("login"));
 		request.setAttribute("title", "Voir vos bases");
 	}
 

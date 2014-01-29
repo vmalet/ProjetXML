@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -39,12 +40,17 @@ public class Supprimer implements IAction{
 		String name = request.getParameter("nom");
 		
 		System.out.println("table: "+action+" nom: "+name);
-
-		String nomFichier = "C:\\Users\\Valeri\\workspace2\\XMLproject\\fileBIS.xml";
+		
+		HttpSession session = request.getSession();
+		String nomFichier = (String) session.getAttribute("leFichier");
+		String fichierLog = (String) session.getAttribute("fichierLog");
 		File file = new File(nomFichier);
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		String nomUtilisateur = "Valerie";
+		
+		
+		String nomUtilisateur = (String) session.getAttribute("login");
+		
 		Document doc = docBuilder.parse(nomFichier);
 		NodeList nodeList = null;
 
@@ -76,11 +82,12 @@ public class Supprimer implements IAction{
 						elNode.getParentNode().removeChild(elNode);//remove table
 					}else if(action.equals("champ"))
 					{
+						System.out.println("Suppression d'un champ");
 						Node removeValeur = elNode.getElementsByTagName("valeur").item(0);
-//						nodeCourant.removeChild(removeValeur);
+						nodeCourant.removeChild(removeValeur);
 						Node removeType = elNode.getElementsByTagName("type").item(0);
-//						nodeCourant.removeChild(removeType);
-//						elNode.getParentNode().removeChild(elNode);
+						nodeCourant.removeChild(removeType);
+						elNode.getParentNode().removeChild(elNode);
 					}else if(action.equals("dataBase"))
 					{
 						//Parcours tous les champs
@@ -121,7 +128,7 @@ public class Supprimer implements IAction{
         
         Ajout ajt = new Ajout();
         String faire = action+" nomme "+name; 
-    	ajt.log("Supprimer", "valerie", faire);
+    	ajt.log(fichierLog, "Supprimer", nomUtilisateur, faire);
     	
     	
         request.setAttribute("title", "Suppression reussi");

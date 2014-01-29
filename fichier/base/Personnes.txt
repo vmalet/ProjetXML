@@ -1,0 +1,26 @@
+Utilisateur: Valerie
+Base: Personnes
+table: Jordan Fleuri
+champs: un champ
+Valeur: ma valeur 
+Type: varchar
+champs: Mathieu
+Valeur: adresse 
+Type: varchar
+champs: Nom/Prénom
+Valeur: Valerie
+Type: Varchar
+table: TESTDE
+champs: Champsss
+Valeur: maValeur
+Type: varchar
+champs: champ1
+Valeur: maValeur
+Type: varchar
+champs: Nom/Prénom
+Valeur: Valerie
+Type: dateTime
+table: adresse
+champs: Indien
+Valeur: Valerie
+Type: varchar

@@ -21,13 +21,11 @@
        	<div id="page-content" class="clearfix">
 			
 			<%
-// 			String nomFichier = "../../fileBIS.xml";
-			String nomFichier = "C:\\Users\\Valeri\\workspace2\\XMLproject\\fileBIS.xml";
-// 			String nomFichier = (String) session.getAttribute("fichier");
+// 			String nomFichier = "C:\\Users\\Valeri\\workspace2\\XMLproject\\fichier\\fileBIS.xml";
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-			String nomUtilisateur = "Valerie";
-			
+			String nomUtilisateur = (String) session.getAttribute("login");
+			String nomFichier = (String) session.getAttribute("leFichier");
 			if(!new File(nomFichier).exists()) //le fichier existe pas 
 			{
 			%> Aucune base existante <%
@@ -90,9 +88,6 @@
 									<%
 								}
 							}
-						}
-						else{
-							%></br>pas le meme nom<%
 						}
 					}
 				}
